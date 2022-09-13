@@ -14,4 +14,23 @@ model Post {
     id      String @id @default(cuid())
     title   String
     content String
+    price Float
+    location String
+    postDate DateTime
+    images Image[]
+    category Category @relation(fields: [categoryId], references: [id])
+    categoryId String
+}
+
+model Image {
+    id      String @id @default(cuid())
+    url     String
+    post    Post   @relation(fields: [postId], references: [id])
+    postId  String
+}
+
+model Category {
+    id      String @id @default(cuid())
+    name    String
+    posts   Post[]
 }
