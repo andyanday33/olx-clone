@@ -10,6 +10,28 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model Profile {
+    id     String @id @default(cuid())
+    bio    String
+    user   User?
+}
+
+model User {
+    id      String   @id @default(cuid())
+    email   String   @unique
+    name    String?
+    password String
+    profile Profile? @relation(fields: [profileId], references: [id])
+    profileId String? @unique
+    posts  Post[]
+}
+
+model Category {
+    id        String   @id @default(cuid())
+    name      String
+    posts     Post[]
+}
+
 model Post {
     id      String @id @default(cuid())
     title   String
@@ -20,6 +42,8 @@ model Post {
     images Image[]
     category Category @relation(fields: [categoryId], references: [id])
     categoryId String
+    creator User @relation(fields: [creatorId], references: [id])
+    creatorId String
 }
 
 model Image {
@@ -29,8 +53,3 @@ model Image {
     postId  String
 }
 
-model Category {
-    id      String @id @default(cuid())
-    name    String
-    posts   Post[]
-}
