@@ -33,12 +33,23 @@ model Category {
 }
 
 model Post {
-    id        String   @id @default(cuid())
-    title     String
-    content   String
-    published Boolean  @default(false)
-    author    User     @relation(fields: [authorId], references: [id])
-    authorId  String
-    category  Category @relation(fields: [categoryId], references: [id])
+    id      String @id @default(cuid())
+    title   String
+    content String
+    price Float
+    location String
+    postDate DateTime
+    images Image[]
+    category Category @relation(fields: [categoryId], references: [id])
     categoryId String
+    creator User @relation(fields: [creatorId], references: [id])
+    creatorId String
 }
+
+model Image {
+    id      String @id @default(cuid())
+    url     String
+    post    Post   @relation(fields: [postId], references: [id])
+    postId  String
+}
+

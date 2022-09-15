@@ -1,0 +1,24 @@
+{
+  "name": "@acme/auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andyanday33/olx-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andyanday33/olx-clone/issues"
+  },
+  "homepage": "https://github.com/andyanday33/olx-clone#readme",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "next-auth": "^4.10.3",
+    "typescript": "^4.8.3"
+  }
+}
