@@ -12,6 +12,7 @@ interface Props extends TextStyle {
 }
 
 const Text = ({ children, color = COLORS.dark as COLOR_TYPES, size = 16, weight = 'normal', ...props }: Props) => {
+  console.log(props);
 
   return (
     <TextBase
@@ -19,8 +20,8 @@ const Text = ({ children, color = COLORS.dark as COLOR_TYPES, size = 16, weight 
         color: COLORS[color],
         fontSize: size,
         fontWeight: weight,
+        ...props,
       }}
-      {...props}
     >
       {children}
     </TextBase>
