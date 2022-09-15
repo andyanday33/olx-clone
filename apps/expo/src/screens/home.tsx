@@ -10,19 +10,19 @@ import type { inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "@acme/api";
 import { trpc } from "../utils/trpc";
 import React from "react";
-import { useSession, signIn } from "@acme/auth/client";
+// import { useSession, signIn } from "@acme/auth/client";
 
 export const HomeScreen = () => {
   // const postQuery = trpc.post.all.useQuery();
   // const [showPost, setShowPost] = React.useState<string | null>(null);
-  const { data, status } = useSession();
-  console.log("data", data);
-  console.log("status", status);
+  // const { data, status } = useSession();
+  // console.log("data", data);
+  // console.log("status", status);
 
   return (
     <SafeAreaView>
       <View className="h-full w-full p-4">
-        <button onClick={() => signIn("github")}></button>
+        {/* <button onClick={() => signIn("github")}></button> */}
       </View>
     </SafeAreaView>
   );
