@@ -1,17 +1,18 @@
-import { SafeAreaView, View, Text, TouchableOpacity, TextInput } from "react-native";
+import { SafeAreaView, View, TouchableOpacity, TextInput } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import type { inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "@acme/api";
 import { trpc } from "../utils/trpc";
 import React from "react";
+import { Text } from '../shared/Typography';
 
 const PostCard: React.FC<{
   post: inferProcedureOutput<AppRouter["post"]["all"]>[number];
 }> = ({ post }) => {
   return (
     <View className="p-4 border-2 border-gray-500 rounded-lg">
-      <Text className="text-xl font-semibold text-gray-800">{post.title}</Text>
-      <Text className="text-gray-600">{post.content}</Text>
+      {/* <Text className="text-xl font-semibold text-gray-800">{post.title}</Text>
+      <Text className="text-gray-600">{post.content}</Text> */}
     </View>
   );
 };
@@ -61,10 +62,11 @@ export const HomeScreen = () => {
   return (
     <SafeAreaView>
       <View className="h-full w-full p-4">
-        <Text className="text-5xl font-bold mx-auto pb-2">
-          Create <Text className="text-indigo-500">T3</Text> Turbo
-        </Text>
 
+        <Text color="primary" size={72} textAlign="center">
+          POLSKA GUROM
+        </Text>
+        {/* 
         <View className="py-2">
           {showPost ? (
             <Text>
@@ -74,7 +76,7 @@ export const HomeScreen = () => {
           ) : (
             <Text className="italic font-semibold">Press on a post</Text>
           )}
-        </View>
+        </View> */}
 
         <FlashList
           data={postQuery.data}
