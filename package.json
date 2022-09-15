@@ -16,5 +16,8 @@
   "devDependencies": {
     "prettier": "latest",
     "turbo": "latest"
+  },
+  "dependencies": {
+    "@expo/webpack-config": "^0.17.0"
   }
 }
